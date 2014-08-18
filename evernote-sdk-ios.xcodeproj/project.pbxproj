@@ -1153,6 +1153,7 @@
 				0BB3D1AB1524ED96001C4534 /* Headers */,
 				414BD857983A4B8ABFEAD915 /* Warn for TODO and FIXME comments */,
 				A9BF37341787497F00680B34 /* CopyFiles */,
+				4FEB65A919A2166E00957825 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1265,6 +1266,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		4FEB65A919A2166E00957825 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/scripts\"\nsh build_framework.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
